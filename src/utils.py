@@ -4,6 +4,8 @@ import sys
 import numpy as np
 import pandas as pd
 import dill 
+from sklearn.metrics import r2_score
+
 from src.exception import CustomException
 
 def save_object(file_path, obj):
@@ -19,3 +21,28 @@ def save_object(file_path, obj):
     except Exception as e:
         raise CustomException(e, sys)
         
+
+def evaluate_all_models(X_train, y_train, X_test, y_test, models):
+    try:
+        report = {}
+
+        models_cnt = len(list(models))
+        for i in range(models_cnt):
+            model = list(models.values())[i]
+            #model is picked at each iter
+
+            model.fit(X_train, y_train)
+            #model is trained
+
+            y_train_pred = model.predict(X_train)
+            y_test_pred = model.predict(X_test)
+
+            train_model_score = r2_score(y_train, y_train_pred)
+            test_model_score = r2_score(y_test, y_test_pred)
+
+            report[list(models.keys())[i]] = test_model_score
+            #stores the R^2 score on test data, eg: report -> {LinearRegression: 0.84, ..., XGBoostRegressor: 0.91}
+        return report
+    
+    except Exception as e:
+        raise CustomException(e,sys)
