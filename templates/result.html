@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+{%block content%}
+    <h4 class="my-3">Your Profile</h4>
+    <div class="mx-3">
+        <div>
+            <label class="profile_inp_label">Gender :</label>  <font size=4>{{gender}}</font>
+        </div>
+        <br>
+        <div>
+            <label class="profile_inp_label">Race or Ethnicity : </label> <font size=4>{{race_ethnicity}}</font>
+        </div>
+        <br>
+        <div>
+            <label class="profile_inp_label">Parental Level of Education : </label> <font size=4>{{parental_level_of_education}}</font>
+        </div>
+        <br>
+        <div>
+            <label class="profile_inp_label">Lunch type : </label> <font size=4>{{lunch}}</font>
+        </div>
+        <br>
+        <div>
+            <label class="profile_inp_label">Test preparation course : </label> <font size=4>{{test_preparation_course}}</font>
+        </div>
+        <br>
+        <div>
+            <label class="profile_inp_label">Writing score : </label> <font size=4>{{writing_score}}</font>
+        </div>
+        <br>
+        <div>
+            <label class="profile_inp_label">Reading score : </label> <font size=4>{{reading_score}}</font>
+        </div>
+        <br>
+    </div>
+    
+    <h2 class="mx-3">Predicted Math score based on your profile: <font color="orange">{{results}}</font></h2>
+{%endblock%}

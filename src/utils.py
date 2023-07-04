@@ -28,7 +28,6 @@ def evaluate_all_models(X_train, y_train, X_test, y_test, models, params):
 #params -> nested dict = {"model name": {"param1":[], "param2":[]}}
     try:
         report = {}
-
         models_cnt = len(list(models))
         for i in range(models_cnt):
             model = list(models.values())[i]
@@ -53,3 +52,14 @@ def evaluate_all_models(X_train, y_train, X_test, y_test, models, params):
     
     except Exception as e:
         raise CustomException(e,sys)
+    
+
+def load_object(file_path):
+    try:
+        with open(file_path, 'rb') as file_obj:
+            loaded_obj = dill.load(file_obj)
+            return loaded_obj
+
+    except Exception as e:
+        raise CustomException(e, sys)
+        

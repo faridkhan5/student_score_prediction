@@ -1,0 +1,23 @@
+body{
+    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+    color: rgb(210, 217, 222);
+}
+
+.inp_dropdown{
+    margin-right: 60%;
+}
+
+.inp_form{
+    margin-left:3%;
+}
+
+.inp_label{
+    background: linear-gradient(rgb(39, 59, 127) 11.4%, rgb(93, 118, 202) 70.2%);
+    color: rgb(236, 236, 236);
+}
+
+.profile_inp_label{
+    background: linear-gradient(rgb(39, 59, 127) 11.4%, rgb(93, 118, 202) 70.2%);
+    color: rgb(236, 236, 236);
+    font-size: 20px;
+}
