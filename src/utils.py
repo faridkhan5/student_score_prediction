@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 import dill 
 from sklearn.metrics import r2_score
+from sklearn.model_selection import GridSearchCV
 
 from src.exception import CustomException
 
@@ -22,17 +23,23 @@ def save_object(file_path, obj):
         raise CustomException(e, sys)
         
 
-def evaluate_all_models(X_train, y_train, X_test, y_test, models):
+def evaluate_all_models(X_train, y_train, X_test, y_test, models, params):
+#models -> dict = {"model name": model()}
+#params -> nested dict = {"model name": {"param1":[], "param2":[]}}
     try:
         report = {}
 
         models_cnt = len(list(models))
         for i in range(models_cnt):
             model = list(models.values())[i]
-            #model is picked at each iter
+            #new model is picked at each iter
+            param = params[list(models.keys())[i]]
 
+            gscv = GridSearchCV(model, param)
+            gscv.fit(X_train, y_train)
+
+            model.set_params(**gscv.best_params_)
             model.fit(X_train, y_train)
-            #model is trained
 
             y_train_pred = model.predict(X_train)
             y_test_pred = model.predict(X_test)
