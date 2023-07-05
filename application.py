@@ -10,7 +10,7 @@ application = Flask(__name__)
 def index():
     return render_template('home.html')
 
-@application.route('/predictdata', methods=['GET', 'POST'])
+@application.route('\predictdata', methods=['GET', 'POST'])
 def predict_datapoint():
     if request.method == 'GET':
         return render_template('home.html')
