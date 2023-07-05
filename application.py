@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 import numpy as np
 import pandas as pd
+import os
 
 from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 
@@ -33,4 +34,5 @@ def predict_datapoint():
         return render_template('result.html', results=results[0], gender=gender, race_ethnicity=race_ethnicity, parental_level_of_education=parental_level_of_education, lunch=lunch, test_preparation_course=test_preparation_course, reading_score=reading_score, writing_score=writing_score)
 
 if __name__=="__main__":
+    port = int(os.environ.get("PORT", 80))
     application.run(host="0.0.0.0")
