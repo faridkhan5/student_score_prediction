@@ -1,8 +1,9 @@
 # Student Score Prediction Project
-![student_score_website_img](website_img.png)
 
 ## About
 This repository contains a project aimed at predicting students' average scores based on various demographic, socioeconomic, and performance-related features. The project includes exploratory data analysis (EDA), preprocessing, model training and evaluation, and a Flask-based web application for making predictions.
+
+![student_score_website_img](website_img.png)
 
 ## Features
 1. Exploratory Data Analysis (EDA):
